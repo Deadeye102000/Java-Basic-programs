@@ -1,0 +1,38 @@
+import java.util.*;
+class linear_search
+{
+        public static void main(String[] args) {
+            Scanner sc=new Scanner(System.in);
+
+            System.out.println("Enter the size of array");
+            int size=sc.nextInt();
+            int[] arr = new int[size];
+            System.out.println("Enter elements");
+            for(int i = 0;i<size;i++)
+                arr[i]=sc.nextInt();
+            System.out.println("Enter target to search");
+            int target=sc.nextInt();
+            if(linearSearch(arr, target)==-1)
+                System.out.println("Element not found");
+            else
+                System.out.println("Target element is at position "+linearSearch(arr, target));
+        }
+
+        static int linearSearch(int[] arr, int target) {
+            if (arr.length == 0) {
+                return -1;
+            }
+
+            // run a for loop
+            for (int index = 0; index < arr.length; index++) {
+                // check for element at every index if it is = target
+                int element = arr[index];
+                if (element == target) {
+                    return (index+1);
+                }
+            }
+            // this line will execute if none of the return statements above have executed
+            // hence the target not found
+            return -1;
+        }
+    }
